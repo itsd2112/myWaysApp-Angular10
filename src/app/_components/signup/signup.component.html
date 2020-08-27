@@ -1,0 +1,23 @@
+<div align="center">
+    <form [formGroup]="signupForm" (ngSubmit)=userSignUp(signupForm.value)>
+        <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName">
+          </mat-form-field><br>
+          <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName">
+          </mat-form-field><br>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email">
+          </mat-form-field><br>
+          <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password">
+            </mat-form-field><br>
+            <button routerLink="/" mat-flat-button color="primary"> Back</button>&nbsp;&nbsp;
+            <button type="submit" mat-flat-button color="primary"> SignUp</button> 
+            
+    </form>
+</div>

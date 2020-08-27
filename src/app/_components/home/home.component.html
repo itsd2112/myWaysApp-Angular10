@@ -1,0 +1,30 @@
+<div align="center">
+    <div *ngIf="!loggedIn">
+        <form [formGroup]="loginForm" (ngSubmit)=userLogin(loginForm.value)>
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email">
+            </mat-form-field><br>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password">
+              </mat-form-field><br>
+              <button type="submit" mat-flat-button color="primary"> SignIn</button>
+        </form>
+        <br><br>
+        <button mat-button color="primary" routerLink="signup">Create New Account</button>
+        <br><br>
+        <button (click)="signInWithFB()"  mat-flat-button color="primary">Sign In With Facebook</button>
+    </div>
+    
+    <div *ngIf="loggedIn && user">
+        Provider: {{user.provider}}<br><br>
+        User Name: {{user.firstName}} {{user.lastName}}<br><br>
+        User Email: {{user.email}}<br><br>
+        <img src={{user.photoUrl}} alt="profilePic">
+    </div>
+    <div>
+        <button (click)="signOut()" *ngIf="loggedIn" mat-flat-button color="primary">Sign Out From Facebook</button>
+    </div>    
+</div>
+
